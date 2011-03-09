@@ -1,0 +1,218 @@
+<!--
+        startPage.html
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>sin título</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 0.18" />
+    <link href="styles/ninja.css"
+        rel="stylesheet" type="text/css" />
+    <script src="twit_posts.txt"></script>
+    <script type="text/javascript" src="rsc/jquery.js"></script>
+    <script type="text/javascript" src="rsc/jquery.lavalamp.js"></script>
+    <script type="text/javascript" src="rsc/jquery.easing.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+            $("#1").lavaLamp({
+                fx: "backout",
+                speed: 700,
+                click: function(event, menuItem) {
+                    return false;
+                }
+            });
+        });
+    $(document).ready(function(){
+        $(document).ready(function () {
+            $('#welcome').slideDown();        
+        });
+        $('#showWelcome').click(function(){
+            $('#plugins').slideUp("normal",function(){
+                $('#news').slideUp("normal", function(){
+                    $('#welcome').slideDown();
+                    });
+                });                        
+            });
+        $('#showNews').click(function(){
+            $('#plugins').slideUp("normal",function(){
+                $('#welcome').slideUp("normal", function(){
+                    $('#news').slideDown();
+                    });
+                });                        
+            });
+        $('#showPlugins').click(function(){
+            $('#news').slideUp("normal",function(){
+                $('#welcome').slideUp("normal", function(){
+                    $('#plugins').slideDown();
+                    });
+                });                        
+            });
+    });
+</script>
+
+</head>
+
+<body onload="cargarDatos()">
+    
+    <div id="Content">
+        <div id="Post-Top"></div>
+        <div id="Post-Content">
+            <table id="Principal" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td id="Menu" align="center">
+                        <ul class="lavaLampWithImage" id="1">
+                            <li class="current"><a id="showWelcome" href="#" >Welcome</a></li>
+                            <li><a id="showNews" href="#" >What's New?</a></li>
+                            <li><a id="showPlugins" href="#" >Shortcuts!</a></li>
+                        </ul> 
+                    </td>                    
+                </tr>
+                <tr>
+                    <td align="center">
+                        <!--
+                        Cada div, es una seccion del menu
+                        /!-->
+                        <div id="welcome">
+                        <table class="welcomeTable">
+                            <tr >
+                                <td class="recentProjects">
+                                    <h3>Recent Projects</h3>
+                                    <object type="x-pyqt/widget" width="200" height="250"></object>
+                                </td>
+                                <td>
+                                    <h3>Welcome to Ninja-IDE</h3>
+                                    <br/>
+                                <p>NINJA-IDE (from: "Ninja Is Not Just Another IDE"), is a 
+                                cross-platform integrated development environment specially 
+                                design to build Python Applications.</p><br>
+                                <p>NINJA-IDE provides tools to simplify the Python-software 
+                                development and handles all kinds of situations thanks to its 
+                                rich extensibility.</p>
+                                 <p>NINJA-IDE Version 1.0, also called
+                                   <i>Kunai</i>, include the following features:</p><br>
+                                   <ul>
+                                       <li>Multi-Language code editor</li>
+                                       <li>Code Completion</li>
+                                       <li>Embedded Python Console</li>
+                                       <li>Manage Projects properties and files</li>
+                                       <li>Run File and Projects</li>
+                                       <li>Configurable GUI</li>
+                                       <li>And many more...</li>
+                                   </ul>
+                                      <br><br><br>
+                                </td>
+                            </tr>
+                        </table>
+                        </div>
+                        <div id="news">
+                            <div id="birdy"></div>
+                            <h3>Check out all the News on NINJA's Twitter!!!</h3>
+                            <script src="rsc/twitter.js"></script>
+                            <script>
+                            new TWTR.Widget({
+                              version: 2,
+                              type: 'profile',
+                              rpp: 5,
+                              interval: 6000,
+                              width: 500,
+                              height: 300,
+                              theme: {
+                                shell: {
+                                  background: '#454545',
+                                  color: '#ffffff'
+                                },
+                                tweets: {
+                                  background: '#f5f5f5',
+                                  color: '#000000',
+                                  links: '#03a376'
+                                }
+                              },
+                              features: {
+                                scrollbar: true,
+                                loop: false,
+                                live: true,
+                                hashtags: true,
+                                timestamp: true,
+                                avatars: true,
+                                behavior: 'all'
+                              }
+                            }).render().setUser('ninja_ide').start();
+                            </script>
+                        </div>
+                        
+                        <div id="plugins">
+                            <div>
+                            <table>
+                            <thead>
+                            <tr><h3>Shortcuts!</h3></tr>
+                            </thead>
+                            <tbody>
+                            <td>
+                            <p>
+                            <ul>
+                                <li>New File: Ctrl+N</li>
+                                <li>Save: Ctrl+S</li>
+                                <li>Save All: Ctrl+Shift+S</li>
+                                <li>Open File: Ctrl+O</li>
+                                <li>Open Project: Ctrl+P</li>
+                                <li>Create Project: Ctrl+J</li>
+                                <li>Find: Ctrl+F</li>
+                                <li>Find & Replace: Ctrl+H</li>
+                                <li>Undo: Ctrl+Z</li>
+                                <li>Redo: Ctrl+Y</li>
+                                <li>Copy: Ctrl+C</li>
+                                <li>Paste: Ctrl+V</li>
+                                <li>Cut: Ctrl+X</li>
+                                <li>Python Documentation: F1</li>
+                                <li>Close Tab: Ctrl+W</li>
+                                <li>Change Tab (Next): Ctrl+Tab</li>
+                                <li>Change Tab (Previous): Ctrl+Shift+Tab</li>
+                                <li>Run Project (for Python and HTML): F6</li>
+                                <li>Run File (for Python and HTML): Ctrl+F6</li>
+                                <li>Show/Hide Console: F4</li>
+                                <li>Show/Hide Editor: F3</li>
+                                <li>Show/Hide Properties Panel: F2</li>
+                                <li>Show/Hide All (except Editor): F11</li>
+                                <li>Split Tabs Horizontaly: F10</li>
+                                <li>Split Tabs Verticaly: F9</li>
+                                <li>Follow Mode: Ctrl+F10</li>
+                                <li>Zoom In (in Editor): Ctrl+WheelUp</li>
+                                <li>Zoom Out (in Editor): Ctrl+WheelDown</li>
+                                <li>Fade Out (outside Editor): Alt+WheelDown</li>
+                                <li>Fade In (outside Editor): Alt+WheelUp</li>
+                                <li>Comment/Uncomment: CTRL+D</li>
+                                <li>Insert Horizontal Line: CTRL+R</li>
+                                <li>Insert Title Comment: CTRL+T</li>
+                                <li>Indent More: Tab</li>
+                                <li>Indent Less: Shift+Tab</li>
+                                <li>Print File: Ctrl+I</li>
+                                <li>Reload File: F5</li>
+                            </ul>
+                            </p>
+                            </td>
+                            </tbody>
+                            </table>
+                            </div>
+                            <br/><br/><br/>
+                        </div>
+                    </td>
+                </tr>
+            </table>            
+            
+           
+        </div>
+        <div id="Post-Footer">
+            <div id="imgVersion">
+            </div>
+            <div id="imgQt"></div>
+        </div>
+
+</div>
+
+</body>
+</html>

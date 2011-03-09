@@ -1,0 +1,170 @@
+* { margin: 0; padding: 0; }
+
+html { height: 100%; font-size: 62.5% }
+
+body 
+{
+    background: url('Banner.png') no-repeat 0 0;
+	background-color:Black;
+	text-align: left;
+	font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+}
+
+#Principal
+{
+    width:100%;
+    text-align: center;
+}
+
+#Content
+{
+    margin-top : 70px;
+    margin-left : 15%;    
+    width:770px;    
+}
+#Post-Top
+{
+    background:url('block-top.png') no-repeat 0 0;
+    width:100%px;
+    height: 24px;
+    overflow:hidden;
+}
+
+#Post-Content
+{
+    padding: 0 25px, 0 55px;
+    margin-top:0px;
+    background:url('block-body.png') repeat-y 0 0;    
+    width:100%px;    
+}
+
+#Post-Footer
+{
+    margin-top:0px;
+    background:url('block-foot.png') no-repeat 0 0;
+    width:100%px;
+    height: 24px;
+}
+
+#imgVersion
+{
+    float:left;
+    background:url('noxy.png') no-repeat 0 0;
+    top:-30px;
+    left:16%;
+    width:89px;
+    height:90px;
+}
+
+#imgQt
+{
+    background:url('qt.png') no-repeat 0 0;
+    position:relative;
+    top:-27px;
+    left:90%;
+    width:38px;
+    height:45px; 
+}
+
+#welcome, #news, #plugins
+{
+    display:none;
+}
+
+.welcomeTable
+{
+    width:750px;
+    }
+
+.welcomeTable tr
+{
+    vertical-align:top;
+    }
+
+td .recentProjects
+{
+    width:250px;
+    }
+
+#birdy
+{
+    background:url('Twitter.png') no-repeat 0 0;
+    width:77px;
+    height:93px;
+    margin-left: 10px;
+    float:left;
+    position:relative;
+    }
+
+.twit_post
+{
+    background:url('twit.png') no-repeat 0 0;
+    width:500px;
+    margin-left:257px;
+    margin-top:10px;
+    min-height:48px;
+    }
+
+.twit_text
+{
+    font: italic 14px arial;
+    text-decoration: none;
+    color: black;
+    outline: none;
+    text-align: left;
+    padding-left:40px;
+    }
+.twit_time
+{
+    font: bold 10px arial;
+    text-decoration: none;
+    color: gray;
+    outline: none;
+    text-align: right;
+    padding-left:40px;
+    }
+
+        .lavaLampWithImage {
+            position: relative;
+            height: 29px;
+            width: 421px;
+            background: url("bg.gif") no-repeat top;
+            padding: 15px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+                .lavaLampWithImage li {
+                    float: left;
+                    list-style: none;
+                }
+                    .lavaLampWithImage li.back {
+                        background: url("lava.gif") no-repeat right -30px;
+                        width: 9px; height: 30px;
+                        z-index: 8;
+                        position: absolute;
+                    }
+                        .lavaLampWithImage li.back .left {
+                            background: url("lava.gif") no-repeat top left;
+                            height: 30px;
+                            margin-right: 9px; /* 7px is the width of the rounded shape */
+                        }
+                    .lavaLampWithImage li a {
+                        font: bold 14px arial;
+                        text-decoration: none;
+                        color: #fff;
+                        outline: none;
+                        text-align: center;
+                        top: 7px;
+                        text-transform: uppercase;
+                        letter-spacing: 0;
+                        z-index: 10;
+                        display: block;
+                        float: left;
+                        height: 30px;
+                        position: relative;
+                        overflow: hidden;
+                        margin: auto 10px;    
+                    }
+                        .lavaLampWithImage li a:hover, .lavaLampWithImage li a:active, .lavaLampWithImage li a:visited {
+                            border: none;
+                        }
