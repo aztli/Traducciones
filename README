@@ -1,0 +1,71 @@
+
+===============================================
+== ¿Cómo operan los traductores voluntarios? ==
+===============================================
+
+* Realmente el mecanismo es sencillo: hay un registro de
+  traductores con los jefes de Traduccion. Todo aquel que se considere
+  calificado para traducir un artículo determinado, puede registrarse.
+  No hay costos ni compromisos adicionales más que hacer una traducción
+  de alta calidad y entregarla a más tardar en la fecha comprometida.
+
+* Tendremos los artículos por traducir disponibles de manera que,
+  si una vez registrado, quieres traducir un árticulo específico,
+  simplemente "tomas", es decir seleccionas, ese artículo, mismo que te
+  descargaras del GIt y, tu solo te comprometes a regresar la
+  traducción, subiendola al Git(Logicamente se te dara un pequeño curso
+  para manejar git), a mas tardar en una fecha específica asignada por
+  el jefe de Traduccion (esperando que sean un tiempo razonable).
+
+* El artículo que elegiste es marcado como "En proceso de
+  traducción y disponible en Español el: dd/mmm/aaaa" de manera que solo
+  haya un traductor por cada artículo.
+
+* Sabemos que no va a suceder ¿cierto?... pero, si al llegar la
+  fecha limite en que te comprometiste a entregar el artículo, no has
+  enviado la traducción en Español, para su revisión -mas vale estar
+  seguros, por lo menos al principio.. :) - y puesta en línea, el
+  artículo volverá a estar disponible para que otra persona lo tome a su
+  cargo y lo traduzca.
+
+* Si tuviste un contratiempo y ves que no podras entregarnos el
+  artículo traducido en la fecha acordada, envianos un e-mail y te
+  daremos un día más. Esto funciona siempre que no se haya vencido la
+  fecha y el artículo no haya sido seleccionado por otra persona.
+
+* La persona que se comprometió a traducirlo y no cumplió, no
+  podrá volver a tomar ese mismo artículo y quedará su incumplimiento
+  registrado en la "historia de traducciones" de ese artículo.
+
+* Paulatinamente entre todos Ustedes y nosotros iremos traduciendo
+  al Español todos los articulos que se vayan agregando en el Git de
+  aztli.
+
+http://github.com/aztli
+
+===========================================
+==¿Que ganan los traductores voluntarios?==
+===========================================
+
+* Para empezar, reconocimiento por su arduo trabajo y, también el
+  agradecimiento de una númerosa comunidad Linux hispano-parlante de
+  todo el mundo.
+
+* Creemos que es obvio, pero mejor vale aclararlo por que alguien ya
+  pregunto...: Traductores voluntarios significa que es un trabajo
+  altruista, sin pago alguno por nuestra parte.
+
+El proyecto de Documentacion contempla las siguente ramas:
+    - Ninja IDE
+    
+Si deseas unirte al grupo de traduccion solo contacta con:
+
+    lelouchy@gmail.com
+    wozgeass@gmail.com
+
+Solo se te pedira que nos dejes tu llave publica si no sabes como
+checa esta pagina:
+
+    http://help.github.com/linux-key-setup/
+
+
