@@ -15,7 +15,7 @@ class AboutNinja(QDialog):
     def __init__(self, parent=None):
         QDialog.__init__(self, parent, Qt.Dialog)
         self.setModal(True)
-        self.setWindowTitle('About NINJA-IDE')
+        self.setWindowTitle('Acerca de NINJA-IDE')
         self.setMaximumSize(QSize(0,0))
         v_box = QVBoxLayout(self)
 
@@ -29,11 +29,12 @@ class AboutNinja(QDialog):
         lblTitle.setAlignment(Qt.AlignLeft)
         hbox.addWidget(lblTitle)
         v_box.addLayout(hbox)
-        v_box.addWidget(QLabel("""NINJA-IDE (from: "Ninja Is Not Just Another IDE"), is a 
-cross-platform integrated development environment specially design 
-to build Python Applications.
-NINJA-IDE provides tools to simplify the Python-software development 
-and handles all kinds of situations thanks to its rich extensibility."""))
+        v_box.addWidget(QLabel("""NINJA-IDE (from: "Ninja Is Not Just Another IDE"), es un
+Entorno de desarrollo integrado, diseñado especialmente para 
+contruir aplicaciones de python.
+NINJA-IDE Proveen herramientas que facilitan el desarrollo de aplicaciones
+en python y maneja todo tipo de situaciones gracias a su Numero de extenciones."""))
         v_box.addWidget(QLabel('Version: 1.0'))
-        v_box.addWidget(QLabel('Website: http://ninja-ide.org.ar'))
-        v_box.addWidget(QLabel('Source Code: http://ninja-ide.googlecode.com'))
+        v_box.addWidget(QLabel('Pagina del Proyecto: http://ninja-ide.org.ar'))
+        v_box.addWidget(QLabel('Codigo Fuente: http://ninja-ide.googlecode.com'))
+	v_box.addWidget(QLabel('Pagina de los Traductores: http://aztli.cs.buap.mx'))
