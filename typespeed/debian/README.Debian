@@ -1,0 +1,27 @@
+typespeed for Debian
+--------------------
+
+If you use /etc/typespeedrc or ~/.typespeedrc to configure typespeed, take
+note: The directory for wordfiles (and high score files) are currently hard
+coded in the binary, and cannot be changed. This is caused by a little bit of
+hacking done to make typespeed conform to Debian policy, namely forcing the
+word files and the highscore files to be stored in separate directories.
+
+High score files are stored in /var/games/typespeed and word lists are stored
+in /usr/share/games/typespeed.
+
+Currently, /usr/share/games/typespeed/words.* are not registered as conffiles.
+All changes you make there will be lost. If you have ideas on how to allow
+changes but *not* create extra files in /usr/share/games/typespeed, please let
+me know. Extra files cannot be created there or else typespeed will become
+confused.
+
+In typespeed 0.3.5-3, there was a bug in the post-installation setup script
+(postinst) that caused several files high.words.* to be created in the root
+directory. These are harmless and should be removed.
+
+Downgrading from 0.4.1-2 to previous versions is unsupported, as high score
+files will be lost due to the migration to /var/games/typespeed in this
+version.
+
+ -- Dafydd Harries <daf@muse.19inch.net> Wed, 24 Mar 2004 01:16:55 +0000

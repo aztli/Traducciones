@@ -1,0 +1,60 @@
+#!/bin/sh
+
+set -e
+
+# Older (0.4 and earlier) versions of Typespeed used a directory containing a
+# number of binary high score files, one per word list. The Typespeed pacakge
+# used to put them in $OLDDIR, which was later moved to $NEWDIR for FHS
+# compliance. Newer (post-0.6) versions of Typespeed use a single text-based
+# file at $SCOREFILE.
+
+OLDDIR=/var/lib/games/typespeed
+NEWDIR=/var/games/typespeed
+SCOREFILE=/var/games/typespeed.score
+
+if test "$1" = "configure"; then
+	if test -e $OLDDIR; then
+		# Move high score files created by older versions to the new,
+		# FHS-compliant location.
+
+		# If the old high score directory exists, find all high score
+		# files in it and move then to the new high score directory
+		# unless a file with the same name already exists there.
+
+		mkdir -p $NEWDIR
+		find $OLDDIR \
+			-name 'high.words.*' \
+			-exec sh -c 'test ! -e `basename {}`' \
+			-exec mv '{}' $NEWDIR ';'
+
+		# Try and delete the old high score directory if it exists,
+		# but don't worry if deletion fails.
+
+		rmdir --ignore-fail-on-non-empty $OLDDIR
+	fi
+
+	# Ensure new high score file exists and has proper permissions.
+
+	if ! test -e $SCOREFILE; then
+		touch $SCOREFILE
+		chown root:games $SCOREFILE
+		chmod 664 $SCOREFILE
+	fi
+
+	if test -e $NEWDIR; then
+		# Fix permissions.
+
+		find $NEWDIR -name 'high.words.*' \
+			-exec chown root:games '{}' ';' \
+			-exec chmod 664 '{}' ';'
+
+		# If new high score file is empty, convert any old high score
+		# files to the new format.
+
+		test ! -s $SCOREFILE && \
+			/usr/lib/typespeed/convert $NEWDIR $SCOREFILE
+	fi
+fi
+
+#DEBHELPER#
+

@@ -1,0 +1,2 @@
+?package(typespeed):needs="text" section="Games/Action"\
+  title="Typespeed" command="/usr/games/typespeed"

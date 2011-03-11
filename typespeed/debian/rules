@@ -1,0 +1,70 @@
+#!/usr/bin/make -f
+
+CFLAGS = -Wall -W -pedantic -std=c99 -g -D_GNU_SOURCE
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+CFLAGS += -O0
+else
+CFLAGS += -O2
+endif
+
+patch:
+	dh_quilt_patch
+
+unpatch:
+	dh_quilt_unpatch
+
+config.log: patch
+	./configure --prefix=/usr --bindir=/usr/games --localstatedir=/var \
+		--sysconfdir=/etc
+
+debian/build-stamp: config.log
+	dh_testdir
+	$(MAKE) CFLAGS="$(CFLAGS)"
+	touch debian/build-stamp
+
+build: debian/build-stamp
+
+clean: config.log
+	dh_testdir
+	dh_testroot
+	rm -f debian/build-stamp debian/install-stamp
+	$(MAKE) distclean
+	dh_quilt_unpatch
+	dh_clean
+
+debian/install-stamp: debian/build-stamp
+	dh_testdir
+	dh_testroot
+	dh_installdirs
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/typespeed
+	cp src/convert debian/typespeed/usr/lib/typespeed/convert
+	rm debian/typespeed/var/games/typespeed.score
+	touch debian/install-stamp
+
+install: debian/install-stamp
+
+binary-indep: install
+
+binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_installdocs
+	dh_installmenu
+	dh_installman man/typespeed.6
+	dh_installchangelogs
+	dh_strip
+	dh_compress
+	dh_fixperms
+	chown root:games debian/typespeed/usr/games/typespeed
+	chmod g+s        debian/typespeed/usr/games/typespeed
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+
+.PHONY: build clean binary-indep binary-arch binary patch unpatch
+

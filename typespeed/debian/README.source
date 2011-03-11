@@ -1,0 +1,9 @@
+Patches are applied using quilt. For information on quilt, see:
+
+  /usr/share/doc/quilt/README.source
+
+However, debian/patches is generated from the 'patches' git branch as follows:
+
+  $ rm debian/patches/*
+  $ git format-patch -o debian/patches ..patches
+  $ ls debian/patches/*.patch > debian/patches/series

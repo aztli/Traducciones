@@ -1,0 +1,5 @@
+version=3
+http://tobias.eyedacor.org/typespeed/ \
+	typespeed-(.*)\.tar\.gz \
+	debian \
+	uupdate

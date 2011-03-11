@@ -1,0 +1,18 @@
+Source: typespeed
+Build-Depends: debhelper (>= 5), quilt (>= 0.46-7), libncurses5-dev
+Section: games
+Priority: optional
+Maintainer: Dafydd Harries <daf@debian.org>
+Standards-Version: 3.8.4
+Homepage: http://tobias.eyedacor.org/typespeed/
+Vcs-Git: git://git.debian.org/git/collab-maint/typespeed
+Vcs-Browser: http://git.debian.org/?p=collab-maint/typespeed.git
+
+Package: typespeed
+Architecture: any
+Depends: fileutils (>= 4.0-5) | coreutils (>> 5), ${misc:Depends}, ${shlibs:Depends}
+Conflicts: suidmanager (<< 0.50)
+Description: Zap words flying across the screen by typing them correctly
+ Typespeed is a game in which words fly across your screen. Your task is to
+ zap the words by typing them before they cross the screen. If too many words
+ get by you, the game is over.

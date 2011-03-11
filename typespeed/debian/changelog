@@ -1,0 +1,335 @@
+typespeed (0.6.5-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix "package purge (after dependencies removal) fails": fix postrm to not
+    fail in case where /var/games/typespeed doesn't exist; patch by Johann
+    Felix Soden (closes: #574192).
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 17 Apr 2010 16:16:37 +0200
+
+typespeed (0.6.5-1) unstable; urgency=high
+
+  * New upstream version. Closes: #561671.
+  * Import into git.
+  * Use quilt for patches.
+  * Fix typo in Italian translation. Closes: #561672.
+  * Update for standards version 3.8.4:
+    - Add debian/README.source file.
+
+ -- Dafydd Harries <daf@debian.org>  Fri, 12 Feb 2010 23:01:40 -0500
+
+typespeed (0.6.4-2) unstable; urgency=high
+
+  * High priority so that fix for #454527 gets into testing.
+  * Make postinst not fail in case where old /var/games/typespeed directory
+    doesn't exist. Closes: #454963.
+  * Make typespeed executable sgid games so that it can write high score file.
+
+ -- Dafydd Harries <daf@debian.org>  Sat, 08 Dec 2007 14:57:56 +0000
+
+typespeed (0.6.4-1) unstable; urgency=high
+
+  * New upstream release. Closes: #375136.
+    - High priority due to fix for DoS attack. Closes: #454527
+      (CVE-2007-6220).
+    - Fixes segfault when $HOME is unset. Closes: #355887.
+    - Adds Italian and French word lists, Dutch word file merged.
+  * New upstream maintainer.
+    - Update homepage URL, debian/copyright, debian/watch.
+    - This version is not network-compatible with versions prior to 0.5.2.
+    - Stricter network code.
+    - Improved memory management.
+  * High score file format has changed: install score conversion program to
+    /usr/lib/typespeed and run it when package is configured.
+  * postinst:
+    - Remove obsolete score file backup/create/restore code.
+    - Add code to upgrade score files to the new text-based format.
+  * rules:
+    - Update to new autotools build.
+    - Put stamp files in debian/.
+    - Support DEB_BUILD_OPTS=noopt.
+  * Remove unnecessary debian/install.
+  * Update man page installation.
+  * Change menu file to Games/Action section as per new menu policy.
+  * Bump to debhelper compat version 5.
+  * Bump standards version to 3.7.3.
+
+ -- Dafydd Harries <daf@debian.org>  Fri, 07 Dec 2007 05:14:13 +0000
+
+typespeed (0.4.4-10) unstable; urgency=high
+
+  * High urgency due to security fix.
+  * Apply patch from Niko Tyni to fix buffer overflow (CVE-2006-1515).
+
+ -- Dafydd Harries <daf@debian.org>  Fri,  5 May 2006 17:31:42 +0100
+
+typespeed (0.4.4-9) unstable; urgency=low
+
+  * Rebuild with newer debhelper so that menu file gets installed in
+    /usr/share. Also, capitalise "Typespeed" in the menu entry.
+    Closes: #357805.
+  * debian/control: Update email address; bump standards version (no changes).
+
+ -- Dafydd Harries <daf@debian.org>  Sat, 25 Mar 2006 23:23:40 +0000
+
+typespeed (0.4.4-8) unstable; urgency=high
+
+  * Security upload.
+  * Applied patch by Ulf Härnhammar to fix a format string vulnerability in
+    file.c. (CAN-2005-0105) Closes: #295556.
+
+ -- Dafydd Harries <daf@muse.19inch.net>  Wed, 16 Feb 2005 22:15:38 +0200
+
+typespeed (0.4.4-7) unstable; urgency=low
+
+  * Add a watch file.
+  * Update the upstream URL in the copyright fiile.
+  * Add a new description with the package's homepage.
+  * Declare CFLAGS as a variable in debian/rules so that it can be overridden
+    rather than just passing the desired flags to the recursive make
+    invocation.
+
+ -- Dafydd Harries <daf@muse.19inch.net>  Sun,  1 Aug 2004 01:39:38 +0100
+
+typespeed (0.4.4-6) unstable; urgency=low
+
+  * debian/postinst:
+    - Only do configuration things when called with "configure".
+    - Don't fail if there are no high score files to move.
+  * debian/changelog:
+    - Insert entries by security team that went missing.
+
+ -- Dafydd Harries <daf@muse.19inch.net>  Wed, 24 Mar 2004 14:33:11 +0000
+
+typespeed (0.4.4-5) unstable; urgency=low
+
+  * Seems using dpkg-statoverride was the wrong thing to do.
+    - debian/postinst, debian/postrm: Remove calls to dpkg-statoverride.
+    - debian/rules: Call chmod instead for correct permissions.
+
+ -- Dafydd Harries <daf@muse.19inch.net>  Wed, 24 Mar 2004 12:55:44 +0000
+
+typespeed (0.4.4-4) unstable; urgency=low
+
+  * debian/postinst: Rewritten; hopefully saner now:
+    - No longer tries to clean up files mis-installed by 0.3.5.3 - the note in
+      README.Debian about it remains.
+    - Don't try to compare md5sums of high score files - my understanding is
+      that they're arch-specific anhow. Simply back up existing ones, create
+      new ones, and restore the backups - this will create empty high score
+      files for new word lists while preserving old high score files from
+      previous versions.
+  * debian/postrm: Generalise high score file removal.
+  * debian/menu: Add quotes in order to satisfy lintian.
+  * debian/control: Add versioned dependency on debhelper (>> 4).
+  * debian/README.Debian: Tidying up; update name and timestamp.
+  * debian/rules: Remove stamp files earlier on, in accordance with policy,
+    other small tidyings up.
+  * debian/copyright: Fix typo, some tidying up.
+
+ -- Dafydd Harries <daf@muse.19inch.net>  Wed, 24 Mar 2004 01:51:38 +0000
+
+typespeed (0.4.4-3) unstable; urgency=low
+
+  * Clean up debian/rules.
+  * Use dh_install and friends rather than cp, chown and chmod.
+  * Use dpkg-statoverride for special permissions.
+  * Convert debian/changelog to UTF-8.
+
+ -- Dafydd Harries <daf@muse.19inch.net>  Tue, 23 Dec 2003 15:44:45 +0000
+
+typespeed (0.4.4-2) unstable; urgency=low
+
+  * Fix botching of words.dut by myself. Just use upstream version.
+  * Tidy up copyright file.
+  * New email address.
+
+ -- Dafydd Harries <daf@muse.19inch.net>  Thu, 18 Dec 2003 19:11:09 +0000
+
+typespeed (0.4.4-1) unstable; urgency=low
+
+  * New maintainer (closes: #219064).
+  * New upstream release (closes: #198078).
+  * Timing issues on Sparc fixed upstream (closes: #190044).
+  * Problems with long word files fixed upstream (closes: #176136).
+  * Most of words.dut has been added upstream.
+  * Added versioned dependency on coreutils to satisfy lintian.
+  * Amended copyright file to satisty lintian.
+  * Standards version updated to 3.6.1.
+
+ -- Dafydd Harries <daf@parnassus.ath.cx>  Tue, 04 Nov 2003 22:35:16 +0000
+
+typespeed (0.4.2-2) unstable; urgency=low
+
+  * Fixes security hole reported by jaguar <badc0ded@myrealbox.com>
+
+ -- William Ono <wmono@debian.org>  Sat, 21 Dec 2002 19:57:18 -0800
+
+typespeed (0.4.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated dependencies to fileutils | coreutils (Closes: #167492)
+  * Includes updated words.dut from Wouter de Vries
+  * Bumped Standards-Version: to 3.5.7
+
+ -- William Ono <wmono@debian.org>  Sat,  2 Nov 2002 13:33:52 -0800
+
+typespeed (0.4.1-3) unstable; urgency=low
+
+  * Fixes crash due to freeing wrong piece of memory
+    (Closes: #147547)  Thanks to Andreas Jonsson <aj@cdt.luth.se>
+
+ -- William Ono <wmono@debian.org>  Mon, 20 May 2002 11:44:13 -0700
+
+typespeed (0.4.1-2.2) stable-security; urgency=high
+
+  * Non-maintainer upload by the Security Team
+  * Fix more buffer overflows in net_swapscore [network.c]
+
+ -- Matt Zimmerman <mdz@debian.org>  Fri, 13 Jun 2003 21:24:17 -0400
+
+typespeed (0.4.1-2.1) stable-security; urgency=high
+
+  * Non-maintainer upload by the Security Team
+  * Applied upstream patch to fix buffer overflows
+  * Added code to remove any trailing newlines from the path
+  * Applied upstream patch to fix a SIGSEGV bug (wrong variable in for loop)
+  * Updated source URL
+
+ -- Martin Schulze <joey@infodrom.org>  Fri, 20 Dec 2002 19:38:52 +0100
+
+typespeed (0.4.1-2) unstable; urgency=low
+
+  * Now includes words.dut from Wouter de Vries <sax@debian.org>
+  * Migration from /var/lib/games/typespeed to /var/games/typespeed
+    for FHS compliance (Closes: #110221)
+
+ -- William Ono <wmono@debian.org>  Fri,  4 Jan 2002 12:29:42 -0800
+
+typespeed (0.4.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bashisms removed from debian/rules.
+
+ -- William Ono <wmono@debian.org>  Wed, 27 Jun 2001 20:38:35 -0700
+
+typespeed (0.4.0-7) unstable; urgency=low
+
+  * Removed dh_suidregister and added Conflicts: suidmanager (<< 0.50)
+    (Closes: #84672)
+
+ -- William Ono <wmono@debian.org>  Fri, 23 Feb 2001 16:10:23 -0800
+
+typespeed (0.4.0-6) unstable; urgency=low
+
+  * Appologies to everyone involved for not uploading this sooner; it was
+    sitting ready to go in my home directory, but it had slipped my mind.
+  * Did s/char merkk/int merkk/ in file.c and removed now obsolete
+    flag -fsigned-char as per suggestion from C.M. Connelly <c@eskimo.com>
+    in Bug#66316.  This does not close the bug, as typespeed is still
+    unusable on PowerPC and possibly other bigendian architectures.
+  * Set Build-Depends: libncurses5-dev instead of libncurses-dev to force
+    libncurses5 to be used.  (Closes: #79743)
+
+ -- William Ono <wmono@debian.org>  Fri, 29 Dec 2000 15:55:24 -0800
+
+typespeed (0.4.0-5) frozen unstable; urgency=low
+
+  * postinst now uses --makescorefiles to generate appropriate high score
+    files for each architecture.  This allows typespeed to actually function
+    on non-i386 machines.  Nothing else has been touched, so this should be
+    safe to install in frozen(potato).  (Closes: #61890)
+  * bashisms fixed in postinst and postrm (Closes: #63109)
+
+ -- William Ono <wmono@debian.org>  Sun, 18 Jun 2000 11:11:07 -0700
+
+typespeed (0.4.0-4) frozen unstable; urgency=low
+
+  * Now compiled with -fsigned-char to avoid problems on powerpc
+    (Closes: #61891)
+
+ -- William Ono <wmono@debian.org>  Sat,  8 Apr 2000 18:51:31 -0700
+  
+typespeed (0.4.0-3) frozen unstable; urgency=low
+
+  * Added Depends: fileutils (>=4.0-5) so the postrm script
+    doesn't fail miserably in some cases.  (Closes: #61126)
+
+ -- William Ono <wmono@debian.org>  Sun, 26 Mar 2000 12:39:18 -0800
+
+typespeed (0.4.0-2) unstable; urgency=low
+
+  * Set Build-Depends in debian/control
+
+ -- William Ono <wmono@debian.org>  Sun, 19 Mar 2000 20:22:09 -0800
+
+typespeed (0.4.0-1) unstable; urgency=low
+
+  * New upstream version.  Re-added directory kludges. (see 0.3.4-1)
+  * Some descriptions changed to reflect changes in code and gameplay.
+  * Uses manpage provided by authors.  (Section changed from 1 to 6.)
+
+ -- William Ono <wmono@debian.org>  Mon, 10 Jan 2000 18:09:49 -0800
+
+typespeed (0.3.5-7) unstable; urgency=low
+
+  * Changed the package description in debian/control to make more sense
+  * Policy: 3.0.1
+
+ -- William Ono <wmono@debian.org>  Thu, 21 Oct 1999 01:27:36 -0700
+
+typespeed (0.3.5-6) unstable; urgency=low
+
+  * Moved information about modifications to the source back to the
+    copyright file from README.Debian to comply with policy
+  * Added note in README.Debian and warning in postinst about bug in
+    0.3.5-3 (Closes: #45305)
+  * Added Danish translation of Peter Maydell's manpage by Bo Vagner Højer.
+
+ -- William Ono <wmono@debian.org>  Mon, 27 Sep 1999 22:38:04 -0700
+
+typespeed (0.3.5-5) unstable; urgency=low
+
+  * Now includes manpage written by Peter Maydell (Closes: #43276)
+
+ -- William Ono <wmono@debian.org>  Fri, 10 Sep 1999 15:22:58 -0700
+
+typespeed (0.3.5-4) unstable; urgency=low
+
+  * Fixes dumb bug in postinst: now does cd to correct directory
+    (Closes: #44814)
+
+ -- William Ono <wmono@debian.org>  Fri, 10 Sep 1999 14:40:12 -0700
+
+typespeed (0.3.5-3) unstable; urgency=low
+
+  * Now removes /var/lib/games/typespeed on purge.
+  * Reversed the movement of information made in 0.3.5-2
+  * copyright now refers to /usr/share/common-licenses/GPL
+
+ -- William Ono <wmono@debian.org>  Sun,  5 Sep 1999 10:33:25 -0700
+
+typespeed (0.3.5-2) unstable; urgency=low
+
+  * Moved information about modification made in 0.3.4-1 into
+    copyright from README.Debian.
+  * Now creates missing /var/lib/games/typespeed/high.words.* in postinst
+    to avoid making the high score files conffiles.
+
+ -- William Ono <wmono@debian.org>  Fri,  6 Aug 1999 16:18:22 -0700
+
+typespeed (0.3.5-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- William Ono <wmono@debian.org>  Sun,  1 Aug 1999 00:46:59 -0700
+
+typespeed (0.3.4-1) unstable; urgency=low
+
+  * Initial Debian package release.
+  * Directories for high score files and word list files were hard-coded
+    using #ifdef DEBIAN.  This is a nasty kludge that avoids typespeed's
+    need to have all of its files in the same directory.
+
+ -- William Ono <wmono@debian.org>  Fri, 16 Jul 1999 23:43:13 -0700
+

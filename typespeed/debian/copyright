@@ -1,0 +1,33 @@
+
+This package is built from sources obtained from:
+
+  http://tobias.eyedacor.org/typespeed/
+
+This package is maintained by Dafydd Harries <daf@debian.org>. It was
+previously maintained by William Ono <wmono@debian.org>, who originally created
+it on Fri, 16 Jul 1999 23:43:13 -0700.
+
+Copyright:
+
+  Copyright (C) 1999-2004   Jani Ollikainen & Jaakko Manelius
+  Copyright (C) 2006        Tobias Stoeckmann
+
+Contact address: tobias at bugol dot de
+
+Licence:
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License
+  as published by the Free Software Foundation; either version 2
+  of the License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL'.
+
+The packaging is available under the same licence as the original software.
+
